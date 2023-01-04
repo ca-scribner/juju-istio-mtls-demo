@@ -1,0 +1,12 @@
+# Allows traffic from namespace foo into this namespace
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+ name: allow-nothing
+ namespace: test-model-after-authorizationpolicy
+spec:
+  action: ALLOW
+  rules:
+  - from:
+    - source:
+        namespaces: ["foo"]
